@@ -18,7 +18,7 @@ function actReadFormData() {
   return actFormData;
 }
 
-// Coloca as informações recebidas numa linha da tabela
+// Coloca as informações recebidas numa linha da tabela dentro da tag tbody
 function actInsertNewRecord(actData) {
   var actTable = document.getElementById("actList").getElementsByTagName('tbody')[0];
   var actNewRow = actTable.insertRow(actTable.length);

@@ -1,6 +1,6 @@
 // Código Para a Tabela de Projetos
 
-/* Aciona quando o formulário é enviado e chama a função actReadFormData, 
+/* Aciona quando o formulário é enviado e chama a função ReadFormData, 
 pegando as informações e passando para a função de inserção*/
 function onFormSubmit() {
     var formData = readFormData();
@@ -16,7 +16,8 @@ function readFormData() {
     return formData;
 }
 
-// Coloca as informações recebidas numa linha da tabela
+/* Coloca as informações recebidas numa linha da tabela dentro da tag tbody 
+e também chama a função resetForm */
 function insertNewRecord(data) {
     var table = document.getElementById("projectList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
