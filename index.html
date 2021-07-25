@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrganizaDev</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header id=header>
+        <nav class="container">
+            <div class="logo">Organiza<span>Dev<span></div>
+            <p>Um simples organizador de projetos</p>
+        </nav>
+    </header>
+<div>
+    <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+        <div>
+            <label>Nome do Projeto</label>
+            <input type="text" name="projectName" id="projectName" required>
+        </div>
+        <div>
+            <label>Data Inicial</label>
+            <input type="date" name="initialDate" id="initialDate" required>
+        </div>
+        <div>
+            <label>Data Final</label>
+            <input type="date" name="finalDate" id="finalDate" required>
+        </div>
+        <div class="form-button">
+            <input type="submit" value="Cadastrar">
+        </div>
+    </form>
+    
+
+    <div class="tables">
+        <h2>Tabela Projetos</h2>
+        <table class="list" id="projectList">
+            <thead>
+                <tr>
+                    <th>ID Projeto</th>
+                    <th>Nome Projeto</th>
+                    <th>Data Inicio</th>
+                    <th>Data Fim</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+    </div>
+
+    <form onsubmit="event.preventDefault();actOnFormSubmit();" autocomplete="off">
+        <div>
+            <label>ID do projeto a ser adicionar a atividade</label>
+            <input type="text" name="projectId" id="projectId" required>
+        </div>
+        <div>
+            <label>Nome da Atividade</label>
+            <input type="text" name="actName" id="actName" required>
+        </div>
+        <div>
+            <label>Data Inicial</label>
+            <input type="date" name="actInitialDate" id="actInitialDate" required>
+        </div>
+        <div>
+            <label>Data Final</label>
+            <input type="date" name="actFinalDate" id="actFinalDate" required>
+        </div>
+        <div>
+            <label>Finalizado?</label>
+            <input type="checkbox" name="ended" value="Sim" id="ended">
+        </div>
+        <div class="act-form-button">
+            <input type="submit" value="Cadastrar">
+        </div>
+    </form>
+
+
+    <div class="tables">
+        <h2>Tabela Atividade</h2>
+        <table class="list" id="actList">
+            <thead>
+                <tr>
+                    <th>ID Atividade</th>
+                    <th>ID Projeto</th>
+                    <th>Nome Atividade</th>
+                    <th>Data Inicio</th>
+                    <th>Data Fim</th>
+                    <th>Finalizada?</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+    </div>
+
+    <script src="scriptTable1.js"></script>
+    <script src="scriptTable2.js"></script>
+    <script>
+        function getProjectId() {
+            var index = document.getElementById("projectList").rows.length - 1;
+            return index;
+        }
+
+        function getActId() {
+            var index = document.getElementById("actList").rows.length - 1;
+            return index;
+        }
+
+        function actFinalizedCheck() {
+            if (document.getElementById('ended').checked) {
+                return "Sim";
+            } else {
+                return "Não";
+            }
+        }
+    </script>
+</body>
+</html>

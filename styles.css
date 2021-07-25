@@ -1,0 +1,77 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+#header {
+  margin-bottom: 32px;
+}
+
+/* NAVIGATOR */
+nav {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(65, 128, 65);
+}
+
+nav p {
+  font: 400 16px sans-serif;
+  color: white;
+}
+
+/* LOGO */
+.logo {
+  font: 700 21px sans-serif;
+  color: black;
+  margin-right: 16px;
+}
+
+.logo span {
+  color: white;
+}
+
+/* FORM */
+form {
+  text-align: center;
+  display: table;
+  width: 100%;
+  font: 700 20px sans-serif;
+  color: rgb(65, 128, 65);
+}
+form div {
+  margin-bottom: 10px;
+}
+
+input {
+  height: 30px;
+}
+
+input[type=text] {
+  width: 300px;
+}
+
+/* TABLES */
+.tables h2 {
+  font: 700 20px sans-serif;
+  font-weight: bold;
+  color: rgb(65, 128, 65);
+  margin: 70px 0 15px 0;
+}
+
+.list {
+  text-align: center;
+  width: 800px;
+  height: 50px;
+}
+
+thead,
+tr,
+th {
+  border-top: 1px solid rgb(65, 128, 65);
+  border-bottom: 1px solid rgb(65, 128, 65);
+}
