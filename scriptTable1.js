@@ -1,13 +1,13 @@
-// Project Table
-var selectedRow = null
+// Código Para a Tabela de Projetos
 
-// Passa os dados da variável para a tabela 
+/* Aciona quando o formulário é enviado e chama a função actReadFormData, 
+pegando as informações e passando para a função de inserção*/
 function onFormSubmit() {
     var formData = readFormData();
     insertNewRecord(formData);
 }
 
-// Le os dados do formulário e armazena na variável
+// Lê as informações do formulário e salva numa variável
 function readFormData() {
     var formData = {}
     formData["projectName"] = document.getElementById("projectName").value;
@@ -16,7 +16,7 @@ function readFormData() {
     return formData;
 }
 
-// Insere uma nova linha na tabela
+// Coloca as informações recebidas numa linha da tabela
 function insertNewRecord(data) {
     var table = document.getElementById("projectList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
@@ -35,7 +35,9 @@ function insertNewRecord(data) {
     resetForm();
 }
 
-// Reseta o formulário
+// Limpa o formulário
+var selectedRow = null;
+
 function resetForm() {
     document.getElementById("projectName").value = "";
     document.getElementById("initialDate").value = "";

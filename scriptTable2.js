@@ -1,11 +1,13 @@
-// Activities Table
-var selectedRow = null
+// Código para a Tabela de Atividades
 
+/* Aciona quando o formulário é enviado e chama a função actReadFormData, 
+pegando as informações e passando para a função de inserção*/
 function actOnFormSubmit() {
   var actFormData = actReadFormData();
   actInsertNewRecord(actFormData);
 }
 
+// Lê as informações do formulário e salva numa variável
 function actReadFormData() {
   var actFormData = {};
   actFormData["projectId"] = document.getElementById("projectId").value;
@@ -16,6 +18,7 @@ function actReadFormData() {
   return actFormData;
 }
 
+// Coloca as informações recebidas numa linha da tabela
 function actInsertNewRecord(actData) {
   var actTable = document.getElementById("actList").getElementsByTagName('tbody')[0];
   var actNewRow = actTable.insertRow(actTable.length);
@@ -30,9 +33,12 @@ function actInsertNewRecord(actData) {
   cell4 = actNewRow.insertCell(4);
   cell4.innerHTML = actData.actFinalDate;
   cell5 = actNewRow.insertCell(5);
-  cell5.innerHTML = actFinalizedCheck(); 
+  cell5.innerHTML = actFinalizedCheck();
   actResetForm();
 }
+
+// Limpa o formulário
+var selectedRow = null;
 
 function actResetForm() {
   document.getElementById("projectId").value = "";

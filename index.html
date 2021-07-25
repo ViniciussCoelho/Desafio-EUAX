@@ -98,9 +98,12 @@
         <form
           class="formB"
           onsubmit="event.preventDefault();actOnFormSubmit();"
-          autocomplete="off">
+          autocomplete="off"
+        >
           <div class="inputText">
-            <label class="inputTextFont">ID do projeto a ser adicionar a atividade</label>
+            <label class="inputTextFont"
+              >ID do projeto a ser adicionar a atividade</label
+            >
             <br /><input
               class="inputTextBox inputTextFont"
               type="text"
@@ -175,16 +178,19 @@
     <script src="scriptTable1.js"></script>
     <script src="scriptTable2.js"></script>
     <script>
+      // Pega o ID do projeto
       function getProjectId() {
         var index = document.getElementById("projectList").rows.length - 1;
         return index;
       }
 
+      // Pega o ID da atividade
       function getActId() {
         var index = document.getElementById("actList").rows.length - 1;
         return index;
       }
 
+      // Verifica se a tarefa foi finalizada
       function actFinalizedCheck() {
         if (document.getElementById("ended").checked) {
           return "Sim";
