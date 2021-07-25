@@ -1,4 +1,6 @@
 // Activities Table
+var selectedRow = null
+
 function actOnFormSubmit() {
   var actFormData = actReadFormData();
   actInsertNewRecord(actFormData);
@@ -29,10 +31,11 @@ function actInsertNewRecord(actData) {
   cell4.innerHTML = actData.actFinalDate;
   cell5 = actNewRow.insertCell(5);
   cell5.innerHTML = actFinalizedCheck(); 
-
+  actResetForm();
 }
 
 function actResetForm() {
+  document.getElementById("projectId").value = "";
   document.getElementById("actName").value = "";
   document.getElementById("actInitialDate").value = "";
   document.getElementById("actFinalDate").value = "";

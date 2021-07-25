@@ -1,4 +1,6 @@
 // Project Table
+var selectedRow = null
+
 function onFormSubmit() {
     var formData = readFormData();
     insertNewRecord(formData);
