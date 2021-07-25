@@ -6,6 +6,12 @@
     <title>OrganizaDev</title>
 
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -16,9 +22,10 @@
       </nav>
     </header>
     <main>
-
-      <div class="sectionA">
+      <div>
         <h1>Gestão de Projetos</h1>
+      </div>
+      <div class="sectionA">
         <h2>Configuração</h2>
         <div id="line"></div>
         <h3>Crie o nome do projeto e defina o seu período.</h3>
@@ -27,79 +34,129 @@
           onsubmit="event.preventDefault();onFormSubmit();"
           autocomplete="off"
         >
-          <div>
-            <label>Nome do Projeto</label>
-            <input type="text" name="projectName" id="projectName" required />
+          <div class="inputText">
+            <label class="inputTextFont">Nome do Projeto</label>
+            <br /><input
+              class="inputTextBox"
+              type="text"
+              name="projectName"
+              id="projectName"
+              required
+            />
+          </div>
+          <div class="inputText">
+            <label class="inputTextFont">Data Inicial</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
+              type="date"
+              name="initialDate"
+              id="initialDate"
+              required
+            />
+          </div>
+          <div class="inputText">
+            <label class="inputTextFont">Data Final</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
+              type="date"
+              name="finalDate"
+              id="finalDate"
+              required
+            />
           </div>
           <div>
-            <label>Data Inicial</label>
-            <input type="date" name="initialDate" id="initialDate" required />
-          </div>
-          <div>
-            <label>Data Final</label>
-            <input type="date" name="finalDate" id="finalDate" required />
-          </div>
-          <div class="form-button">
-            <input type="submit" value="Cadastrar" />
+            <input class="form-button" type="submit" value="Cadastrar" />
           </div>
         </form>
 
         <div class="tables">
           <h2>Tabela Projetos</h2>
-          <table class="list" id="projectList">
+          <table class="columnTable" id="projectList">
             <thead>
               <tr>
                 <th>ID Projeto</th>
                 <th>Nome Projeto</th>
                 <th>Data Inicio</th>
                 <th>Data Fim</th>
+                <th>% Completo</th>
+                <th>Atrasado</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody class="dataTable"></tbody>
           </table>
         </div>
       </div>
 
-      <div class="sectionB">
+      <div>
         <h1>Gestão de Atividades</h1>
+      </div>
+
+      <div class="sectionA">
+        <h2>Configuração</h2>
+        <div id="line"></div>
+        <h3>Crie a atividade vinculando ao ID do projeto.</h3>
         <form
           class="formB"
           onsubmit="event.preventDefault();actOnFormSubmit();"
-          autocomplete="off"
-        >
-          <div>
-            <label>ID do projeto a ser adicionar a atividade</label>
-            <input type="text" name="projectId" id="projectId" required />
+          autocomplete="off">
+          <div class="inputText">
+            <label class="inputTextFont">ID do projeto a ser adicionar a atividade</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
+              type="text"
+              name="projectId"
+              id="projectId"
+              required
+            />
           </div>
-          <div>
-            <label>Nome da Atividade</label>
-            <input type="text" name="actName" id="actName" required />
+          <div class="inputText">
+            <label class="inputTextFont">Nome da Atividade</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
+              type="text"
+              name="actName"
+              id="actName"
+              required
+            />
           </div>
-          <div>
-            <label>Data Inicial</label>
-            <input
+          <div class="inputText">
+            <label class="inputTextFont">Data Inicial</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
               type="date"
               name="actInitialDate"
               id="actInitialDate"
               required
             />
           </div>
-          <div>
-            <label>Data Final</label>
-            <input type="date" name="actFinalDate" id="actFinalDate" required />
+          <div class="inputText">
+            <label class="inputTextFont">Data Final</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
+              type="date"
+              name="actFinalDate"
+              id="actFinalDate"
+              required
+            />
+          </div>
+          <div class="inputText">
+            <label class="inputTextFont">Finalizado?</label>
+            <br /><input
+              class="inputTextBox inputTextFont"
+              type="checkbox"
+              name="ended"
+              value="Sim"
+              id="ended"
+            />
           </div>
           <div>
-            <label>Finalizado?</label>
-            <input type="checkbox" name="ended" value="Sim" id="ended" />
-          </div>
-          <div class="act-form-button">
-            <input type="submit" value="Cadastrar" />
+            <input class="form-button" type="submit" value="Cadastrar" />
           </div>
         </form>
 
         <div class="tables">
           <h2>Tabela Atividade</h2>
-          <table class="list" id="actList">
+          <table class="columnTable" id="actList">
             <thead>
               <tr>
                 <th>ID Atividade</th>
@@ -110,7 +167,7 @@
                 <th>Finalizada?</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody class="dataTable"></tbody>
           </table>
         </div>
       </div>
