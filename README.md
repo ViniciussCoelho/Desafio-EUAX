@@ -28,13 +28,19 @@ O site possui um formulário para a adição dos projetos, e outro para a adiç�
 
 O responsável por passar as informações do formulário para a tabela são funções feitas em Javascript, as funcionalidades de edição, remoção, % Completo, e verificar se há atraso também são feitas em JavaScript.
 
+## Como utilizar:
+
+* Adicionando dados na tabela: para adicionar um projeto ou atividade, basta preencher o formulário e clicar em cadastrar.
+* Deletando uma linha: para deletar uma linha basta clicar no botão "Deletar" ao lado da linha que deseja apagar.
+* Editando uma linha: para editar uma linha basta clicar no botão "Editar" ao lado da linha que deseja alterar, e preencher o respectivo formulário com as novas informações. Após isso, basta clicar no botão cadastrar, e pronto!
+
 ## O que poderia ser melhorado:
 
 * Por falta de experiência em back-end, optei por fazer só o front-end. Ou seja, ao reiniciar ou fechar a página, as informações não são salvas.
-* As funções de deletar e editar possuem alguns bugs, como a % Completo e o atraso, que continuam os mesmos ao editar. Além disso, ao deletar uma linha, caso ela não seja a última, o próximo ID vai ficar repetido. Resolvi deixar as funções de deleção e edição pois não eram obrigatórias na proposta do desafio, mas não consegui consertar após muitas tentativas.
+* As funções de deletar e editar não estão funcionando perfeitamente e possuem alguns bugs, como a % Completo e o atraso, que continuam os mesmos ao editar. Além disso, ao deletar uma linha, caso ela não seja a última, o próximo ID vai ficar repetido. Resolvi deixar as funções de deletar e edição pois não eram obrigatórias na proposta do desafio, mas não consegui consertar após muitas tentativas.
 
 ## Conclusão:
 
-Apesar de algumas dificuldades enfrentadas, consegui completar o desafio proposto. Creio que apesar dos problemas citados no tópico acima, concluí a proposta e aprendi bastante ao longo do desenvolvimento.
+Enfrentei algumas dificuldades, mas consegui completar o desafio proposto. Creio que apesar dos problemas citados no tópico acima, concluí a proposta e aprendi bastante ao longo do desenvolvimento.
 
 
