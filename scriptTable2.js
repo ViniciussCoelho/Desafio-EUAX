@@ -89,6 +89,6 @@ function actOnDelete(td) {
   if (confirm('Tem certeza que quer deletar essa atividade?')) {
     row = td.parentElement.parentElement;
     document.getElementById("actList").deleteRow(row.rowIndex);
-    resetForm();
+    actResetForm();
   }
 }

@@ -205,22 +205,22 @@
         for(var i = 1; i < table1.length; i++) {
           for(var j = 1; j < table2.length; j++) {
             if(table1[i].children[0].innerHTML == table2[j].children[1].innerHTML){
-            actCont++;
+            actCount++;
             if (table2[j].children[5].innerHTML == "Sim") {
             actCountEnded++;
             }
           }
 
-            percentage = (actCountEnded/actCont)*100;
+            percentage = (actCountEnded/actCount)*100;
 
-            if (percentage == undefined) {
-              return("--");
+            if (isNaN(percentage)) {
+              table1[i].children[4].innerHTML = "--";
             } 
             else {
               table1[i].children[4].innerHTML = `${percentage.toFixed(0)}%`;
             }
         }
-          actCont = 0;
+          actCount = 0;
           actCountEnded = 0;
         }
       }
