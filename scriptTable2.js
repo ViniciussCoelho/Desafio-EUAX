@@ -51,6 +51,8 @@ function actInsertNewRecord(actData) {
   cell6 = actNewRow.insertCell(6);
   cell6.innerHTML = `<a onClick="actOnEdit(this)" id="edit">Editar</a>
                      <a onClick="actOnDelete(this)" id="delete">Deletar</a>`;
+  completedP();
+  lateProject();
   actResetForm();
 }
 
@@ -63,7 +65,7 @@ function actResetForm() {
   selectedRow = null;
 }
 
-// Edita a tabela
+// Edita os valores da linha da tabela
 function actOnEdit(td) {
   selectedRow = td.parentElement.parentElement;
   document.getElementById("projectId").value = selectedRow.cells[1].innerHTML;

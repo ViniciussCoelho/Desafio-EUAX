@@ -15,8 +15,8 @@
   </head>
 
   <body>
-    <header id="header">
-      <nav class="container">
+    <header>
+      <nav>
         <div class="logo">OrganizaDev</div>
         <p>Um simples organizador de projetos</p>
       </nav>
@@ -25,12 +25,12 @@
       <div>
         <h1>Gestão de Projetos</h1>
       </div>
+    
       <div class="sectionA">
         <h2>Configuração</h2>
         <div id="line"></div>
         <h3>Crie o nome do projeto e defina o seu período.</h3>
         <form
-          class="formA"
           onsubmit="event.preventDefault();onFormSubmit();"
           autocomplete="off"
         >
@@ -69,7 +69,7 @@
           </div>
         </form>
 
-        <div class="tables">
+        <div>
           <h2>Tabela Projetos</h2>
           <table class="columnTable" id="projectList">
             <thead>
@@ -96,21 +96,18 @@
         <div id="line"></div>
         <h3>Crie a atividade vinculando ao ID do projeto.</h3>
         <form
-          class="formB"
           onsubmit="event.preventDefault();actOnFormSubmit();"
-          autocomplete="off"
-        >
+          autocomplete="off">
           <div class="inputText">
-            <label class="inputTextFont"
-              >ID do projeto a ser adicionar a atividade</label
-            >
+            <label class="inputTextFont">
+              ID do projeto a ser adicionar a atividade
+            </label>
             <br /><input
               class="inputTextBox inputTextFont"
               type="text"
               name="projectId"
               id="projectId"
-              required
-            />
+              required/>
           </div>
           <div class="inputText">
             <label class="inputTextFont">Nome da Atividade</label>
@@ -119,8 +116,7 @@
               type="text"
               name="actName"
               id="actName"
-              required
-            />
+              required/>
           </div>
           <div class="inputText">
             <label class="inputTextFont">Data Inicial</label>
@@ -129,8 +125,7 @@
               type="date"
               name="actInitialDate"
               id="actInitialDate"
-              required
-            />
+              required/>
           </div>
           <div class="inputText">
             <label class="inputTextFont">Data Final</label>
@@ -139,8 +134,7 @@
               type="date"
               name="actFinalDate"
               id="actFinalDate"
-              required
-            />
+              required/>
           </div>
           <div class="inputText">
             <label class="inputTextFont">Finalizado?</label>
@@ -149,15 +143,14 @@
               type="checkbox"
               name="ended"
               value="Sim"
-              id="ended"
-            />
+              id="ended"/>
           </div>
           <div>
             <input class="form-button" type="submit" value="Cadastrar" />
           </div>
         </form>
 
-        <div class="tables">
+        <div>
           <h2>Tabela Atividade</h2>
           <table class="columnTable" id="actList">
             <thead>
@@ -197,6 +190,62 @@
         } else {
           return "Não";
         }
+      }
+
+      /* Função que pega o % Completo. Primeiro ela pega os ids das duas 
+      tabelas, e faz uma comparação, se forem iguais, vai incrementar no actCont
+      e se a atividade estiver finalizada vai incrementar no actContEnded. 
+      Depois disso é calculado a porcentagem e ela é inserida na tabela*/
+      function completedP() {
+        var table1 = [...document.getElementById("projectList").getElementsByTagName("tr")];
+        var table2 = [...document.getElementById("actList").getElementsByTagName("tr")];
+        var qtaAtividades = 0;
+        var atividadesFinalizadas = 0;
+        var porcentagem = 0;
+        for(var i = 1; i < table1.length; i++) {
+          for(var j = 1; j < table2.length; j++) {
+            if(table1[i].children[0].innerHTML == table2[j].children[1].innerHTML){
+            qtaAtividades++;
+            if (table2[j].children[5].innerHTML == "Sim") {
+            atividadesFinalizadas++;
+            }
+          }
+
+            porcentagem = (atividadesFinalizadas/qtaAtividades)*100;
+
+            if (porcentagem == undefined) {
+              return("--");
+            } 
+            else {
+              table1[i].children[4].innerHTML = porcentagem;
+            }
+        }
+          qtaAtividades = 0;
+          atividadesFinalizadas = 0;
+        }
+      }
+
+      function lateProject() {
+  var table1B = [...document.getElementById("projectList").getElementsByTagName("tr")];
+  var table2B = [...document.getElementById("actList").getElementsByTagName("tr")];
+  var getActDate;
+  var getProjectDate;
+  for(var i = 1; i < table1B.length; i++) {
+    getProjectDate = table1B[i].children[3].innerHTML;
+    getProjectDate = getProjectDate.replace(/-/g, "");
+    console.log(getProjectDate)
+    for(var j = 1; j < table2B.length; j++) {
+    if(table1B[i].children[0].innerHTML == table2B[j].children[1].innerHTML 
+    && table2B[j].children[5].innerHTML == "Não") {
+      getActDate = table2B[j].children[4].innerHTML;
+      getActDate = getActDate.replace(/-/g, "");
+      console.log(getActDate)
+      if (parseInt(getActDate) > parseInt(getProjectDate)) {
+        table1B[i].children[5].innerHTML = "Sim";
+      }
+    }
+  }
+}
       }
     </script>
   </body>

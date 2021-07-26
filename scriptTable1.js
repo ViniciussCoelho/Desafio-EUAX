@@ -3,7 +3,7 @@
 // Variável para selecionar uma linha
 var selectedRow = null;
 
-/* Aciona quando o formulário é enviado e chama a função actReadFormData, 
+/* Aciona quando o formulário é enviado e chama a função readFormData, 
 pegando as informações e passando para a função de inserção. Caso a linha 
 selecionada já exista, vai acionar a função de editar */
 function onFormSubmit() {
@@ -31,6 +31,7 @@ e também chama a função resetForm */
 function insertNewRecord(data) {
     var table = document.getElementById("projectList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
+    
     cell0 = newRow.insertCell(0);
     cell0.innerHTML = getProjectId();
     cell1 = newRow.insertCell(1);
@@ -42,7 +43,7 @@ function insertNewRecord(data) {
     cell4 = newRow.insertCell(4);
     cell4.innerHTML = "--";
     cell5 = newRow.insertCell(5);
-    cell5.innerHTML = "--";
+    cell5.innerHTML = "Não";
     cell6 = newRow.insertCell(6);
     cell6.innerHTML = `<a onClick="onEdit(this)" id="edit">Editar</a>
                        <a onClick="onDelete(this)" id="delete">Deletar</a>`;
@@ -57,7 +58,7 @@ function resetForm() {
     selectedRow = null;
 }
 
-// Edita a tabela
+// Edita os valores da linha da tabela
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
     document.getElementById("projectName").value = selectedRow.cells[1].innerHTML;
