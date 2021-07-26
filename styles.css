@@ -18,6 +18,7 @@ nav p {
   font: 400 16px sans-serif;
   color: white;
   margin-left: 16px;
+  margin-top: 4.9px;
 }
 
 /* LOGO */
@@ -223,4 +224,23 @@ h3 {
 .dataTable td {
   padding: 10px;
   border-top: 1px solid #1fc76e;
+}
+
+/* EDIT AND DELETE */
+
+#edit {
+  color: #098a45;
+}
+#edit:hover {
+  color: #054222;
+  cursor: pointer;
+}
+
+#delete {
+  color: #ee4646;
+}
+
+#delete:hover {
+  color: #8a1919;
+  cursor: pointer;
 }
