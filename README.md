@@ -38,6 +38,8 @@ O responsável por passar as informações do formulário para a tabela são fun
 
 * Por falta de experiência em back-end, optei por fazer só o front-end. Ou seja, ao reiniciar ou fechar a página, as informações não são salvas.
 * As funções de deletar e editar não estão funcionando perfeitamente e possuem alguns bugs, como a % Completo e o atraso, que continuam os mesmos ao editar. Além disso, ao deletar uma linha, caso ela não seja a última, o próximo ID vai ficar repetido. Resolvi deixar as funções de deletar e edição pois não eram obrigatórias na proposta do desafio, mas não consegui consertar após muitas tentativas.
+* Seria interessante ter uma validação onde só é possível adicionar uma atividade se o projeto existe.
+* Uma outra funcionalidade interessante a ser adicionada seria uma relação de dependência entre os projetos e atividades. Por exemplo, se deletar um projeto as atividades relacionadas a ele também são deletadas.
 
 ## Conclusão:
 
