@@ -193,35 +193,35 @@
       }
 
       /* Função que pega o % Completo. Primeiro ela pega os ids das duas 
-      tabelas, e faz uma comparação, se forem iguais, vai incrementar no actCont
-      e se a atividade estiver finalizada vai incrementar no actContEnded. 
-      Depois disso é calculado a porcentagem e ela é inserida na tabela*/
+      tabelas, e faz uma comparação, se forem iguais, vai incrementar no actCount
+      e se a atividade estiver finalizada vai incrementar no actCountEnded. 
+      Depois disso é calculado a percentage e ela é inserida na tabela*/
       function completedP() {
         var table1 = [...document.getElementById("projectList").getElementsByTagName("tr")];
         var table2 = [...document.getElementById("actList").getElementsByTagName("tr")];
-        var qtaAtividades = 0;
-        var atividadesFinalizadas = 0;
-        var porcentagem = 0;
+        var actCont = 0;
+        var actCountEnded = 0;
+        var percentage = 0;
         for(var i = 1; i < table1.length; i++) {
           for(var j = 1; j < table2.length; j++) {
             if(table1[i].children[0].innerHTML == table2[j].children[1].innerHTML){
-            qtaAtividades++;
+            actCont++;
             if (table2[j].children[5].innerHTML == "Sim") {
-            atividadesFinalizadas++;
+            actCountEnded++;
             }
           }
 
-            porcentagem = (atividadesFinalizadas/qtaAtividades)*100;
+            percentage = (actCountEnded/actCont)*100;
 
-            if (porcentagem == undefined) {
+            if (percentage == undefined) {
               return("--");
             } 
             else {
-              table1[i].children[4].innerHTML = porcentagem;
+              table1[i].children[4].innerHTML = `${percentage.toFixed(0)}%`;
             }
         }
-          qtaAtividades = 0;
-          atividadesFinalizadas = 0;
+          actCont = 0;
+          actCountEnded = 0;
         }
       }
       
