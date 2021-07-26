@@ -224,28 +224,27 @@
           atividadesFinalizadas = 0;
         }
       }
-
+      
+      // Verifica o atraso
       function lateProject() {
-  var table1B = [...document.getElementById("projectList").getElementsByTagName("tr")];
-  var table2B = [...document.getElementById("actList").getElementsByTagName("tr")];
-  var getActDate;
-  var getProjectDate;
-  for(var i = 1; i < table1B.length; i++) {
-    getProjectDate = table1B[i].children[3].innerHTML;
-    getProjectDate = getProjectDate.replace(/-/g, "");
-    console.log(getProjectDate)
-    for(var j = 1; j < table2B.length; j++) {
-    if(table1B[i].children[0].innerHTML == table2B[j].children[1].innerHTML 
-    && table2B[j].children[5].innerHTML == "Não") {
-      getActDate = table2B[j].children[4].innerHTML;
-      getActDate = getActDate.replace(/-/g, "");
-      console.log(getActDate)
-      if (parseInt(getActDate) > parseInt(getProjectDate)) {
-        table1B[i].children[5].innerHTML = "Sim";
-      }
-    }
-  }
-}
+        var table1B = [...document.getElementById("projectList").getElementsByTagName("tr")];
+        var table2B = [...document.getElementById("actList").getElementsByTagName("tr")];
+        var getActDate;
+        var getProjectDate;
+        for(var i = 1; i < table1B.length; i++) {
+          getProjectDate = table1B[i].children[3].innerHTML;
+          getProjectDate = getProjectDate.replace(/-/g, "");
+          for(var j = 1; j < table2B.length; j++) {
+            if(table1B[i].children[0].innerHTML == table2B[j].children[1].innerHTML 
+            && table2B[j].children[5].innerHTML == "Não") {
+              getActDate = table2B[j].children[4].innerHTML;
+              getActDate = getActDate.replace(/-/g, "");
+              if (parseInt(getActDate) > parseInt(getProjectDate)) {
+                table1B[i].children[5].innerHTML = "Sim";
+              }
+            }
+          }
+        }
       }
     </script>
   </body>
